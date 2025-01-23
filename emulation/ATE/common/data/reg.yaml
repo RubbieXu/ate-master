@@ -1,0 +1,396 @@
+# coding=utf-8
+
+- ADC_INFO:
+    RESET_INFO : [
+        "reg = 0x40020004, data = 0x8",
+        "reg = 0x40020004, data = 0x0"
+    ]
+    DEFAULT_VALUE : [
+        "reg = 0x40020000, data = 0x0",
+        "reg = 0x40020004, data = 0x0",
+        "reg = 0x40020008, data = 0x0",
+        "reg = 0x4002000c, data = 0x0",
+        "reg = 0x40020010, data = 0x0",
+        "reg = 0x40020014, data = 0x56a0000",
+        "reg = 0x40020018, data = 0x0",
+        "reg = 0x4002001c, data = 0x0",
+        "reg = 0x40020020, data = 0x0",
+        "reg = 0x40020024, data = 0x0",
+        "reg = 0x40020028, data = 0x0",
+        "reg = 0x4002002c, data = 0x0",
+        "reg = 0x40020030, data = 0x0",
+        "reg = 0x40020034, data = 0x0",
+        "reg = 0x40020038, data = 0x0",
+        "reg = 0x4002003c, data = 0x0",
+        "reg = 0x40020040, data = 0x0",
+        "reg = 0x40020044, data = 0x0",
+        "reg = 0x40020048, data = 0x3ffffff",
+        "reg = 0x4002004c, data = 0x0",
+        "reg = 0x40020050, data = 0x3ffffff",
+        "reg = 0x40020054, data = 0x0",
+        "reg = 0x40020058, data = 0x3ffffff",
+        "reg = 0x4002005c, data = 0x0",
+        "reg = 0x40020060, data = 0x0",
+        "reg = 0x40020064, data = 0x0",
+        "reg = 0x40020068, data = 0x0",
+        "reg = 0x4002006c, data = 0x0",
+        "reg = 0x40020070, data = 0x0",
+        "reg = 0x40020074, data = 0x0",
+        "reg = 0x40020078, data = 0x60000000",
+        "reg = 0x4002007c, data = 0xe0000000",
+        "reg = 0x40020080, data = 0x0",
+        "reg = 0x40020084, data = 0x0",
+        "reg = 0x40020088, data = 0x0",
+        "reg = 0x4002008c, data = 0x0",
+        "reg = 0x40020090, data = 0x0",
+        "reg = 0x40020094, data = 0x0",
+        "reg = 0x40020098, data = 0x0",
+        "reg = 0x4002009c, data = 0x0",
+        "reg = 0x400200a0, data = 0x0",
+        "reg = 0x400200a4, data = 0x0",
+        "reg = 0x400200a8, data = 0x0",
+        "reg = 0x400200ac, data = 0x0",
+        "reg = 0x400200b0, data = 0x0",
+        "reg = 0x400200b4, data = 0x0",
+        "reg = 0x400200b8, data = 0x0",
+        "reg = 0x400200bc, data = 0x0",
+        "reg = 0x400200c0, data = 0x0",
+        "reg = 0x400200c4, data = 0x0",
+        "reg = 0x400200c8, data = 0x0",
+        "reg = 0x400200cc, data = 0x0",
+        "reg = 0x400200d0, data = 0x0",
+        "reg = 0x400200d4, data = 0x0",
+        "reg = 0x400200d8, data = 0x0",
+        "reg = 0x400200dc, data = 0x0",
+        "reg = 0x400200e0, data = 0x0",
+        "reg = 0x400200e4, data = 0x0",
+        "reg = 0x400200e8, data = 0x0",
+        "reg = 0x400200ec, data = 0x0",
+        "reg = 0x400200f0, data = 0x0",
+        "reg = 0x400200f4, data = 0x0"
+        ]
+    WRITE_REG : "reg = 0x40020004, data = 0x8"
+    REGULAR_SINGLE : [
+        "reg = 0x40020070, data = 0x5555",
+        "reg = 0x40020070, data = 0x5556",
+        "reg = 0x40020070, data = 0x5557",
+        "reg = 0x40020070, data = 0x5558",
+        "reg = 0x40020070, data = 0x5559"
+        ]
+    CLOCK_DIVIDER : [20, 40, 80, 120, 160, 200, 240, 320, 640, 1280, 2560, 5120]
+    # SAMPLE_TIME : [80, 160, 240, 320, 880, 8184, 8192]
+    DISCONTINUS_INFO : [
+        [
+            "reg = 0x40020070, data = 0x5555",
+            "reg = 0x40020070, data = 0x5556",
+            "reg = 0x40020070, data = 0x5557",
+            "reg = 0x40020070, data = 0x5558",
+            "reg = 0x40020070, data = 0x5559"
+            ],
+        [
+            "reg = 0x40020070, data = 0x5556",
+            "reg = 0x40020070, data = 0x5558",
+            "reg = 0x40020070, data = 0x555a",
+            "reg = 0x40020070, data = 0x555c",
+            "reg = 0x40020070, data = 0x555e"
+            ],
+        [
+            "reg = 0x40020070, data = 0x5557",
+            "reg = 0x40020070, data = 0x555a",
+            "reg = 0x40020070, data = 0x555d",
+            "reg = 0x40020070, data = 0x5560",
+            "reg = 0x40020070, data = 0x5563"
+            ],
+        [
+            "reg = 0x40020070, data = 0x5558",
+            "reg = 0x40020070, data = 0x555c",
+            "reg = 0x40020070, data = 0x5560",
+            "reg = 0x40020070, data = 0x5564",
+            "reg = 0x40020070, data = 0x5568"
+            ],
+        [
+            "reg = 0x40020070, data = 0x5559",
+            "reg = 0x40020070, data = 0x555e",
+            "reg = 0x40020070, data = 0x5563",
+            "reg = 0x40020070, data = 0x5564",
+            "reg = 0x40020070, data = 0x5569"
+            ],
+        [
+            "reg = 0x40020070, data = 0x555a",
+            "reg = 0x40020070, data = 0x5560",
+            "reg = 0x40020070, data = 0x5564",
+            "reg = 0x40020070, data = 0x556a",
+            "reg = 0x40020070, data = 0x5570"
+            ],
+        [
+            "reg = 0x40020070, data = 0x555b",
+            "reg = 0x40020070, data = 0x5562",
+            "reg = 0x40020070, data = 0x5564",
+            "reg = 0x40020070, data = 0x556b",
+            "reg = 0x40020070, data = 0x5572"
+            ],
+        [
+            "reg = 0x40020070, data = 0x555c",
+            "reg = 0x40020070, data = 0x5564",
+            "reg = 0x40020070, data = 0x556c",
+            "reg = 0x40020070, data = 0x5574",
+            "reg = 0x40020070, data = 0x557c"
+            ]
+    ]
+    DISCONTINUS_INFO_2 : [
+        [
+            [
+                "reg = 0x40020070, data = 0x5556",
+                "reg = 0x400200c0, data = 0x5555"
+            ],[
+                "reg = 0x40020070, data = 0x5558",
+                "reg = 0x400200c0, data = 0x5557"
+            ],[
+                "reg = 0x40020070, data = 0x555a",
+                "reg = 0x400200c0, data = 0x5559"
+            ]
+        ],[
+            [
+                "reg = 0x40020070, data = 0x5559",
+                "reg = 0x400200c0, data = 0x5555"
+            ],[
+                "reg = 0x40020070, data = 0x555e",
+                "reg = 0x400200c0, data = 0x555a"
+            ],[
+                "reg = 0x40020070, data = 0x5563",
+                "reg = 0x400200c0, data = 0x555f"
+            ]
+        ],[
+            [
+                "reg = 0x40020070, data = 0x555c",
+                "reg = 0x400200c0, data = 0x5555"
+            ],[
+                "reg = 0x40020070, data = 0x5564",
+                "reg = 0x400200c0, data = 0x555d"
+            ],[
+                "reg = 0x40020070, data = 0x5567",
+                "reg = 0x400200c0, data = 0x5565"
+            ]
+        ],[
+            [
+                "reg = 0x40020070, data = 0x0",
+                "reg = 0x400200c0, data = 0x5555"
+            ],[
+                "reg = 0x40020070, data = 0x0",
+                "reg = 0x400200c0, data = 0x5556"
+            ],[
+                "reg = 0x40020070, data = 0x0",
+                "reg = 0x400200c0, data = 0x5557"
+            ]
+        ]
+    ]
+    DMA_INFO : [
+        # "reg = 0x30000000, data = 0x5555",
+        # "reg = 0x30000010, data = 0x5559",
+        "reg = 0x30003ff8, data = 0x6553",
+        "reg = 0x30007ffc, data = 0x7554"
+    ]
+    CALI_INFO : [
+        [
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x554",
+            "reg = 0x40020070, data = 0x553",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x556",
+            "reg = 0x40020070, data = 0x557",
+            "reg = 0x40020070, data = 0x8554"
+        ],[
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x554",
+            "reg = 0x40020070, data = 0x553",
+            "reg = 0x40020070, data = 0x1",
+            "reg = 0x40020070, data = 0x0",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x556",
+            "reg = 0x40020070, data = 0x557",
+            "reg = 0x40020070, data = 0x2554"
+        ],[
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x554",
+            "reg = 0x40020070, data = 0x553",
+            "reg = 0x40020070, data = 0x1",
+            "reg = 0x40020070, data = 0x0",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x555",
+            "reg = 0x40020070, data = 0x556",
+            "reg = 0x40020070, data = 0x557",
+            "reg = 0x40020070, data = 0xd54"
+        ]
+    ]
+    IO_TRIGGER : [
+        "reg = 0x40020070, data = 0x5555",
+        "reg = 0x40020070, data = 0x5556",
+        "reg = 0x40020070, data = 0x5557",
+        "reg = 0x400200c0, data = 0x5555",
+        "reg = 0x400200c4, data = 0x5556",
+        "reg = 0x400200c8, data = 0x5557",
+        "reg = 0x400200cc, data = 0x5558",
+        "reg = 0x400200c0, data = 0x5559",
+        "reg = 0x400200c4, data = 0x555a",
+        "reg = 0x400200c8, data = 0x555b",
+        "reg = 0x400200cc, data = 0x555c",
+        "reg = 0x400200c0, data = 0x555d",
+        "reg = 0x400200c4, data = 0x555e",
+        "reg = 0x400200c8, data = 0x555f",
+        "reg = 0x400200cc, data = 0x5560"
+    ]
+    INJECT_INFO : [
+        [
+            "reg = 0x400200c0, data = 0x5555",
+            "reg = 0x400200c4, data = 0x5556",
+            "reg = 0x400200c8, data = 0x5557",
+            "reg = 0x400200cc, data = 0x5558"
+        ],[
+            "reg = 0x40020000, data = 0x0"
+        ],[
+            "reg = 0x40020070, data = 0x5555",
+            "reg = 0x400200c0, data = 0x5556",
+            "reg = 0x400200c4, data = 0x5557",
+            "reg = 0x400200c8, data = 0x5558",
+            "reg = 0x400200cc, data = 0x5559"
+        ],[
+            "reg = 0x40020000, data = 0x60",
+            "reg = 0x40020070, data = 0x0",
+            "reg = 0x400200c0, data = 0x5555",
+            "reg = 0x400200c4, data = 0x5556",
+            "reg = 0x400200c8, data = 0x5557",
+            "reg = 0x400200cc, data = 0x5558"
+        ]
+    ]
+    TRIGGER_MANAGE : [
+        [
+            "reg = 0x40020000, data = 0xc",
+            "reg = 0x40020070, data = 0x5555"
+        ],[
+            [
+                "reg = 0x40020000, data = 0x6c",
+                "reg = 0x40020070, data = 0x555a",
+                "reg = 0x400200c0, data = 0x5556",
+                "reg = 0x400200c4, data = 0x5557",
+                "reg = 0x400200c8, data = 0x5558",
+                "reg = 0x400200cc, data = 0x5559"
+            ],[
+                "reg = 0x40020000, data = 0x6c",
+                "reg = 0x40020070, data = 0x5559",
+                "reg = 0x400200c0, data = 0x5555",
+                "reg = 0x400200c4, data = 0x5556",
+                "reg = 0x400200c8, data = 0x5557",
+                "reg = 0x400200cc, data = 0x5558"
+            ]
+        ],[
+            "reg = 0x40020000, data = 0x60",
+            "reg = 0x40020070, data = 0x0",
+            "reg = 0x400200c0, data = 0x5555",
+            "reg = 0x400200c4, data = 0x5556",
+            "reg = 0x400200c8, data = 0x5557",
+            "reg = 0x400200cc, data = 0x5558"
+        ],[
+            "reg = 0x40020000, data = 0x6c",
+            "reg = 0x40020070, data = 0x5559",
+            "reg = 0x400200c0, data = 0x5555",
+            "reg = 0x400200c4, data = 0x5556",
+            "reg = 0x400200c8, data = 0x5557",
+            "reg = 0x400200cc, data = 0x5558"
+        ],[
+            "reg = 0x40020000, data = 0x6c",
+            "reg = 0x40020070, data = 0x5559",
+            "reg = 0x400200c0, data = 0x5555",
+            "reg = 0x400200c4, data = 0x5556",
+            "reg = 0x400200c8, data = 0x5557",
+            "reg = 0x400200cc, data = 0x5558"
+        ]
+    ]
+    TRIGGER_MANAGE_2 : [
+        [
+            "reg = 0x400200c0, data = 0x555d",
+            "reg = 0x400200c4, data = 0x555e",
+            "reg = 0x400200c8, data = 0x555f",
+            "reg = 0x400200cc, data = 0x5560"
+        ],[
+            "reg = 0x40020070, data = 0x5561",
+            "reg = 0x400200c0, data = 0x555d",
+            "reg = 0x400200c4, data = 0x555e",
+            "reg = 0x400200c8, data = 0x555f",
+            "reg = 0x400200cc, data = 0x5560"
+        ],[
+            "reg = 0x40020070, data = 0x555b",
+            "reg = 0x400200c0, data = 0x5557",
+            "reg = 0x400200c4, data = 0x5558",
+            "reg = 0x400200c8, data = 0x5559",
+            "reg = 0x400200cc, data = 0x555a"
+        ],[
+            "reg = 0x40020070, data = 0x555b",
+            "reg = 0x400200c0, data = 0x5557",
+            "reg = 0x400200c4, data = 0x5558",
+            "reg = 0x400200c8, data = 0x5559",
+            "reg = 0x400200cc, data = 0x555a"
+        ]
+    ]
+    GPIO_INFO : [
+        [
+            "reg = 0x50000020, data = 0xffffffef",
+            "reg = 0x50000020, data = 0xffffffcf",
+            "reg = 0x50000020, data = 0xffffff8f",
+            "reg = 0x50000020, data = 0xffffff0f",
+            "reg = 0x50000020, data = 0xfffffe0f",
+            "reg = 0x50000020, data = 0xfffffc0f",
+            "reg = 0x50000020, data = 0xfffff80f",
+            "reg = 0x50000020, data = 0xfffff00f",
+            "reg = 0x50000020, data = 0xffffe00f",
+            "reg = 0x50000020, data = 0xffffc00f",
+            "reg = 0x50000020, data = 0xffff800f",
+            "reg = 0x50000020, data = 0xffff000f",
+            "reg = 0x50000020, data = 0xfffe000f",
+            "reg = 0x50000020, data = 0xfffc000f",
+            "reg = 0x50000020, data = 0xfff8000f",
+            "reg = 0x50000020, data = 0xfff0000f",
+            "reg = 0x50000020, data = 0xffe0000f",
+            "reg = 0x50000020, data = 0xffc0000f",
+            "reg = 0x50000020, data = 0xff80000f",
+            "reg = 0x50000020, data = 0xff00000f",
+            "reg = 0x50000020, data = 0xfe00000f"
+        ],[
+            "reg = 0x50000020, data = 0xfe00001f",
+            "reg = 0x50000020, data = 0xfe00003f",
+            "reg = 0x50000020, data = 0xfe00007f",
+            "reg = 0x50000020, data = 0xfe0000ff",
+            "reg = 0x50000020, data = 0xfe0001ff",
+            "reg = 0x50000020, data = 0xfe0003ff",
+            "reg = 0x50000020, data = 0xfe0007ff",
+            "reg = 0x50000020, data = 0xfe000fff",
+            "reg = 0x50000020, data = 0xfe001fff",
+            "reg = 0x50000020, data = 0xfe003fff",
+            "reg = 0x50000020, data = 0xfe007fff",
+            "reg = 0x50000020, data = 0xfe00ffff",
+            "reg = 0x50000020, data = 0xfe01ffff",
+            "reg = 0x50000020, data = 0xfe03ffff",
+            "reg = 0x50000020, data = 0xfe07ffff",
+            "reg = 0x50000020, data = 0xfe0fffff",
+            "reg = 0x50000020, data = 0xfe1fffff",
+            "reg = 0x50000020, data = 0xfe3fffff",
+            "reg = 0x50000020, data = 0xfe7fffff",
+            "reg = 0x50000020, data = 0xfeffffff",
+            "reg = 0x50000020, data = 0xffffffff"
+        ]
+    ]
+    OVER_SAMPLE : [
+        "reg = 0x40020070, data = 0x5555",
+        "reg = 0x40020070, data = 0xaaab",
+        "reg = 0x40020070, data = 0x10002",
+        "reg = 0x40020070, data = 0x3aade"
+    ]
+    AWD_ON : "reg = 0x50000004, data = 0x1"
+    AWD_OFF : "reg = 0x50000004, data = 0x0"
+    PARALLEL_INFO : [
+        "reg = 0x40020000, data = 0xc",
+        "reg = 0x40020070, data = 0x5555"
+    ]

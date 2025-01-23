@@ -1,0 +1,14 @@
+
+
+#filter file
+*.pyc
+*.log
+*.html
+
+#filter dir
+__pycache__
+.pytest_cache
+
+
+# 不排除.gitignore
+!.gitignore
