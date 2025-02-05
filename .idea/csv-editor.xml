@@ -3,7 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\emulation\ATE\case\report\ATC001_XCLK_Freq.csv">
+        <entry key="\emulation\ATE\case\report\ATC001_OSC_output.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

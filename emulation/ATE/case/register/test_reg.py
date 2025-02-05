@@ -3,6 +3,7 @@ from common.script.file_control import *
 from common.script.excel_control import getExcellAllSheetName
 from common.script.Serial_Port import SerialPort
 from common.script.Reset import ReSet
+from common.global_var.globalvar import *
 from common.utils.log import log
 import time
 import pytest_repeat
@@ -765,6 +766,10 @@ def test_case23_XCLK_Freq(probe_clk0_div=0x17, p19v33_ds=0x0):
     sendCmd_andGetReponse(['if','reset'])
     sendCmd_andGetReponse(['if','hsetest', probe_clk0_div, p19v33_ds])
 
+def test_case24_OSC_output_clock(osc_ds = 0x0, p20v33_ds=0x0):
+    sendCmd_andGetReponse(['if', 'reset'])
+    sendCmd_andGetReponse(['if', 'osc_output', osc_ds])
+    sendCmd_andGetReponse(['if', 'osc_output', osc_ds, p20v33_ds])
 
 def test_case00():
     print("just for debug")

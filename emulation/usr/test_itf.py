@@ -43,6 +43,7 @@ class test_itf:
             'sync'      : self.adc_sync,
             'dual'      : self.adc_dual,
             'hsetest'   : self.hsetest,
+            'osc_output': self.OSC_output_clock,
             'Biasref'   : self.Biasref,
         }
         self.CLKCON = 0x50000000
@@ -452,6 +453,22 @@ class test_itf:
         print('hclk port')
         self.readReg_print(0x50000000)
         self.readReg_print(0x50000008)
+        self.readReg_print(0x50000028)
+        time.sleep(3)
+
+    def OSC_output_clock(self, args: list):
+        # args[0] = osc_ds
+        self.write_reg_bits(0x50000020,    (0x1 << 23),  0x0 << 23) # P20V33 DIR=0 output
+        self.write_reg_bits(0x50000000,    (0x3 << 26),  0x0 << 26) # probe_clk1_sel =0x00 from OSC
+        self.write_reg_bits(0x50000008,    (0x1 << 17),  0x0 << 17) # adc2_aclk_d4_sel=0
+        self.write_reg_bits(0x50000008,    (0x1 << 15),  0x0 << 15) # awd_sel=0
+        self.write_reg_bits(0x50000008,    (0x1 << 19),  0x1 << 19) # probe_sel1=1
+        self.write_reg_bits(0x50000008,    (0x7 << 9),  args[0] << 9) # osc_ds
+        self.write_reg_bits(0x50000008,    (0x1 << 8),  0x1 << 8)  # osc_en=1
+        self.write_reg_bits(0x50000028,    (0x1 << 24), args[1] << 24)  # PAD_DS[24] p20v33_ds=0
+        self.readReg_print(0x50000000)
+        self.readReg_print(0x50000008)
+        self.readReg_print(0x50000020)
         self.readReg_print(0x50000028)
         time.sleep(3)
 
