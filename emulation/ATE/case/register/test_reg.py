@@ -768,7 +768,6 @@ def test_case23_XCLK_Freq(probe_clk0_div=0x17, p19v33_ds=0x0):
 
 def test_case24_OSC_output_clock(osc_ds = 0x0, p20v33_ds=0x0):
     sendCmd_andGetReponse(['if', 'reset'])
-    sendCmd_andGetReponse(['if', 'osc_output', osc_ds])
     sendCmd_andGetReponse(['if', 'osc_output', osc_ds, p20v33_ds])
 
 def test_case00():
