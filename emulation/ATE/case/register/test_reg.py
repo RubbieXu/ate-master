@@ -256,10 +256,22 @@ def test_case9_Discontinuous_002():
 
 def test_case10_DMA():
     num = 1
+    CKDIV = 2
+    RES = 0  # 0 is 16bit;  1--14bit; 2--12bit
+    CONT = 1 # 0-single conversion; 1-continuous conversion
+    Length = 0
+    DISCUM = 0
+    EXTEN = 0
+    Oversampling_scope = 0
+    Oversampling_ratio = 0
+    Oversampling_shift = 0
+    ch = 0
+    smp0 = 1
+    diff_mode = 1 # diff mode 0--single; 1-diff
     sendCmd_andGetReponse(['if','reset'])
     sendCmd_andGetReponse(['if','sel',num])
-    sendCmd_andGetReponse(['if','init',2,0,1,0,0,0,0,0,0]) # continuous
-    sendCmd_andGetReponse(['if','regular',0,10,0])
+    sendCmd_andGetReponse(['if','init',CKDIV,RES,CONT,Length,DISCUM,EXTEN,Oversampling_scope,Oversampling_ratio,Oversampling_shift]) # continuous
+    sendCmd_andGetReponse(['if','regular',ch,smp0,diff_mode])
     sendCmd_andGetReponse(['if','dma', num])
     # for i in range(0, 5):
     #     sendCmd_andGetReponse(['if','data'])

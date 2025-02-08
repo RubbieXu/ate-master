@@ -23,7 +23,7 @@ test_files_all = [
     # 'case/register/test_reg.py::test_case8_SampleTime',
     # 'case/register/test_reg.py::test_case9_Discontinuous_001',
     # # 'case/register/test_reg.py::test_case9_Discontinuous_002',
-    # 'case/register/test_reg.py::test_case10_DMA',
+    'case/register/test_reg.py::test_case10_DMA',
     # # 'case/register/test_reg.py::test_case11_Cali',
     # 'case/register/test_reg.py::test_case12_IOTrigger',
     # 'case/register/test_reg.py::test_case13_Inject',
@@ -37,7 +37,7 @@ test_files_all = [
     # 'case/register/test_reg.py::test_case20_AWD',
     # 'case/register/test_reg.py::test_case21_Sync',
     # 'case/register/test_reg.py::test_case22_DualMode',
-    'case/register/test_reg.py::test_case23_XCLK_Freq',
+    # 'case/register/test_reg.py::test_case23_XCLK_Freq',
 
                 ]
 # selected case
@@ -103,7 +103,7 @@ def merge_reports(report_filename, html_report_paths):
                 # 将报告内容写入合并报告文件
                 merged_report.writelines(lines)
             # 删除单个报告文件
-            # os.remove(report_path)
+            os.remove(report_path)
         # 写入 HTML 报告尾部
         merged_report.write('</body></html>')
 

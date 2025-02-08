@@ -193,18 +193,30 @@ class test_itf:
         # if args[0] in self.ddicreg:
         #     self.WriteReg(self.ddicreg[args[0]], value)
     def adc_msp_init(self):
-        self.write_reg_bits(0x50011838, (0x7 << 27),    0x0 << 27)  # Enable clock
-        self.write_reg_bits(0x50011854, (0x7 << 20),    0x0 << 20)  # Enable analg clock
-        self.write_reg_bits(0x50011C40, (0x3 << 6),     0x3 << 6)   # Analog PC03
-        self.write_reg_bits(0x50011C40, (0x3 << 4),     0x3 << 4)   # Analog PC02
+        #self.write_reg_bits(0x50011838, (0x7 << 27),    0x0 << 27)  # Enable clock
+        #self.write_reg_bits(0x50011854, (0x7 << 20),    0x0 << 20)  # Enable analg clock
+        #self.write_reg_bits(0x50011C40, (0x3 << 6),     0x3 << 6)   # Analog PC03
+        #self.write_reg_bits(0x50011C40, (0x3 << 4),     0x3 << 4)   # Analog PC02
+
+        self.write_reg_bits(self.ANACON1,    (0x1 << 16),  1 << 16) # BGEN
+
+        self.write_reg_bits(self.CFGR3,      (0x3 << 16),  2 << 16) # PRE1
+        self.write_reg_bits(self.CFGR3,      (0x3 << 18),  2 << 18) # PRE2
+        self.write_reg_bits(self.CFGR3,      (0x3 << 20),  2 << 20) # PRE3
+
+        self.write_reg_bits(self.CFGR3,      (0x3 << 22),  1 << 22) # DLY2
+        self.write_reg_bits(self.CFGR3,      (0x3 << 24),  1 << 24) # DLY3
+        self.write_reg_bits(self.CFGR3,      (0x3 << 26),  0 << 26) # DLYA
+
+        self.write_reg_bits(self.CFGR3,      (0x3 << 28),  0 << 28) # CONV
 
     def adc_init(self, args: list):
         self.adc_msp_init()
-        self.write_reg_bits(0x50011418, (0x1 << 2),     0x1 << 2) # BGEN
+        #self.write_reg_bits(0x50011418, (0x1 << 2),     0x1 << 2) # BGEN
         self.write_reg_bits(self.CLKCON,(0x3 << 30),    0x3 << 30) # AD soft reset disable
         self.write_reg_bits(self.CR,    (0xF << 12),    args[0] << 12)  # CKDIV
-        self.write_reg_bits(self.CR,    (0x7 << 9),     args[1] << 9)  # RES
-        self.write_reg_bits(self.CFGR,  (0x1 << 8),     args[2] << 8)  # CONT
+        self.write_reg_bits(self.CR,    (0x7 << 9),     args[1] << 9)  # RES  0 is 16bit;  1--14bit; 2--12bit
+        self.write_reg_bits(self.CFGR,  (0x1 << 8),     args[2] << 8)  # CONT 0-single conversion; 1-continuous conversion
         self.write_reg_bits(self.SQR1,  (0xF << 0),     args[3] << 0)  # Length
         if args[4] > 0:
             self.write_reg_bits(self.CFGR,  (0x7 << 10),    (args[4] - 1) << 10)  # DISCUM
@@ -219,8 +231,8 @@ class test_itf:
     def adc_regular(self, args: list):
         ch = args[0]
         self.write_reg_bits(self.SQR1,  (0x1F << 6),    ch << 6)  # Rank
-        self.write_reg_bits(self.SMPR1, (0x3FF << 0),   args[1] << 0)  # sample time
-        self.write_reg_bits(self.DIFSEL,(1 << ch),      args[2] << ch)  # diff mode
+        self.write_reg_bits(self.SMPR1, (0x3FF << 0),   args[1] << 0)  # sample timerre
+        self.write_reg_bits(self.DIFSEL,(1 << ch),      args[2] << ch)  # diff mode 0--single; 1-diff
         print('ADC regular group config')
 
     def adc_inject(self, args: list):
@@ -270,53 +282,51 @@ class test_itf:
 
     def adc_data(self, args: list):
         print('adc data----------------------------------------')
-        self.readReg_print(self.ISR),
-        self.readReg_print(self.DR),
-        # self.readReg_print(self.DRSQ1),
-        # self.readReg_print(self.DRSQ2),
-        # self.readReg_print(self.DRSQ3),
-        # self.readReg_print(self.DRSQ4),
-        # self.readReg_print(self.DRSQ5),
-        # self.readReg_print(self.DRSQ6),
-        # self.readReg_print(self.DRSQ7),
-        # self.readReg_print(self.DRSQ8),
-        # self.readReg_print(self.DRSQ9),
-        # self.readReg_print(self.DRSQ10),
-        # self.readReg_print(self.DRSQ11),
-        # self.readReg_print(self.DRSQ12),
-        # self.readReg_print(self.DRSQ13),
-        # self.readReg_print(self.DRSQ14),
-        # self.readReg_print(self.DRSQ15),
-        # self.readReg_print(self.DRSQ16),
-        # self.readReg_print(self.JSQR)
-        self.readReg_print(self.JDR1),
-        self.readReg_print(self.JDR2),
-        self.readReg_print(self.JDR3),
-        self.readReg_print(self.JDR4),
+        self.readReg_print(self.ISR)
+        self.readReg_print(self.DR)
+        # self.readReg_print(self.DRSQ1)
+        # self.readReg_print(self.DRSQ2)
+        # self.readReg_print(self.DRSQ3)
+        # self.readReg_print(self.DRSQ4)
+        # self.readReg_print(self.DRSQ5)
+        # self.readReg_print(self.DRSQ6)
+        # self.readReg_print(self.DRSQ7)
+        # self.readReg_print(self.DRSQ8)
+        # self.readReg_print(self.DRSQ9)
+        # self.readReg_print(self.DRSQ10)
+        # self.readReg_print(self.DRSQ11)
+        # self.readReg_print(self.DRSQ12)
+        # self.readReg_print(self.DRSQ13)
+        # self.readReg_print(self.DRSQ14)
+        # self.readReg_print(self.DRSQ15)
+        # self.readReg_print(self.DRSQ16)
+
+        # self.readReg_print(self.JDR1)
+        # self.readReg_print(self.JDR2)
+        # self.readReg_print(self.JDR3)
+        # self.readReg_print(self.JDR4)
         # print('adc config----------------------------------------')
-        # self.readReg_print(self.IER),
-        # self.readReg_print(self.CR),
-        # self.readReg_print(self.CFGR),
-        # self.readReg_print(self.CFGR2),
-        # self.readReg_print(self.CFGR3),
-        # self.readReg_print(self.SMPR1),
-        # self.readReg_print(self.ADW1CR),
-        # self.readReg_print(self.LTR1),
-        # self.readReg_print(self.HTR1),
-        # self.readReg_print(self.SQR1),
-        # self.readReg_print(self.SQR2),
-        # self.readReg_print(self.SQR3),
-        # self.readReg_print(self.SQR4),
-        # self.readReg_print(self.JSQR),
-        # self.readReg_print(self.CALOFACT),
-        # self.readReg_print(self.CALUSER1),
-        # self.readReg_print(self.CALUSER2),
-        # self.readReg_print(self.CALUSER3),
-        # self.readReg_print(self.DIFSEL),
-        # self.readReg_print(self.CALFACT1),
-        # self.readReg_print(self.CALFACT2),
-
-
+        # self.readReg_print(self.IER)
+        # self.readReg_print(self.CR)
+        # self.readReg_print(self.CFGR)
+        # self.readReg_print(self.CFGR2)
+        # self.readReg_print(self.CFGR3)
+        # self.readReg_print(self.SMPR1)
+        # self.readReg_print(self.ADW1CR)
+        # self.readReg_print(self.LTR1)
+        # self.readReg_print(self.HTR1)
+        # self.readReg_print(self.SQR1)
+        # self.readReg_print(self.SQR2)
+        # self.readReg_print(self.SQR3)
+        # self.readReg_print(self.SQR4)
+        # self.readReg_print(self.JSQR)
+        # self.readReg_print(self.CALOFACT)
+        # self.readReg_print(self.CALUSER1)
+        # self.readReg_print(self.CALUSER2)
+        # self.readReg_print(self.CALUSER3)
+        # self.readReg_print(self.DIFSEL)
+        # self.readReg_print(self.CALFACT1)
+        # self.readReg_print(self.CALFACT2)
 
     def adc_awd(self, args: list):
         num = args[0]
@@ -330,7 +340,7 @@ class test_itf:
             self.WriteReg(0x40000044, (0 << 7) |0x4) # DMA1_CH0->CFGH
             self.WriteReg(0x40000040, 0x1 << 30) # DMA1_CH0->CFGL SRC_RELOAD=1
             self.WriteReg(0x4000001C, 0x0) # DMA1_CH0->CTLH
-            self.WriteReg(0x40000018, 0x200424) # DMA1_CH0->CTLL addr&size
+            self.WriteReg(0x40000018, 0x200412) # DMA1_CH0->CTLL addr&size
             # self.WriteReg(0x5001004C, 0x08000000) #SYSCFG->CORE1INTEN0
             self.write_reg_bits(self.CR,  (0x1 << 0),   0x1 << 0)  # ADEN
             self.write_reg_bits(self.CFGR,  (0x1 << 0),   0x1 << 0)  # DMAEN
@@ -387,8 +397,8 @@ class test_itf:
         # for i in range(0, 4095):
         #     self.WriteReg(0x30000000 + (4*i), i)
 
-        for i in range(0, 8192): # 4095
-            self.readReg_print(0x30000000 + (4*i)) #SRAM0 addr
+        for i in range(0, 16384): # 4095
+            self.readReg_print(0x30000000 + (2*i)) #SRAM0 addr
 
     def adc_cali(self, args: list):
         self.write_reg_bits(self.CFGR2,     (0x1 << 27),    args[0] << 27)  # OFACTEN  EnableCalibrationFactor
